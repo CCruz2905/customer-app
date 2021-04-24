@@ -10,7 +10,7 @@ const customerRoutes = require('./routes/customer');
 const app = express();
 
 // Settings
-app.set( 'port', process.env.PORT || 3000 );
+// app.set( 'port', process.env.PORT || 3000 );
 app.set( 'view engine', 'ejs' );
 app.set( 'views', path.join( __dirname, 'views' ) );
 
@@ -18,7 +18,7 @@ app.set( 'views', path.join( __dirname, 'views' ) );
 app.use( morgan( 'dev' ) );
 app.use( myConnection( mysql, {
 
-    host: '192.168.1.75',
+    host: 'its-mysql.southcentralus.cloudapp.azure.com',
     user: 'itsadmin',
     password: 'Its2017.',
     port: 3306,
@@ -37,3 +37,5 @@ app.use( express.static( path.join(__dirname, 'public' ) ) );
 app.listen( app.get( 'port' ), () => {
     console.log( 'Server on port 3000' );
 });
+
+module.exports = app;
